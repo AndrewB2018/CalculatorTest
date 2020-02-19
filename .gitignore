@@ -10,3 +10,5 @@
 /CalculatorProgram/bin/Debug/netcoreapp3.1
 /CalculatorProgram/obj
 /.vs/CalculatorTest/DesignTimeBuild
+/Data/bin/Debug/netcoreapp3.1
+/Common/bin/Debug/netcoreapp3.1

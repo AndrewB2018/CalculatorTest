@@ -1,4 +1,4 @@
-﻿namespace Common
+﻿namespace Diagnostics
 {
     public interface IDiagnostics
     {

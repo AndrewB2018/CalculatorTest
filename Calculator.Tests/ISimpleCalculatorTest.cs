@@ -1,4 +1,4 @@
-using Common;
+using Diagnostics;
 using Moq;
 using NUnit.Framework;
 

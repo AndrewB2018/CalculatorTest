@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Common
+namespace Diagnostics
 {
     public class DiagnosticsConsole : IDiagnostics
     {

@@ -1,4 +1,4 @@
-﻿using Common;
+﻿using Diagnostics;
 using System;
 
 namespace Calculator
