@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Calculator
 {
-    interface ISimpleCalculator
+    public interface ISimpleCalculator
     {
         int Add(int start, int amount);
         int Subtract(int start, int amount);
