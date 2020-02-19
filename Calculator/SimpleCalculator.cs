@@ -1,17 +1,15 @@
-﻿using NLog;
+﻿using Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Calculator
 {
     public class SimpleCalculator : ISimpleCalculator
     {
-        private readonly ILogger _logger;
+        private readonly IDiagnostics _diagnostics;
 
-        public SimpleCalculator (ILogger logger)
+        public SimpleCalculator (IDiagnostics diagnostics)
         {
-            _logger = logger;
+            _diagnostics = diagnostics;
         }
 
         public int Add(int start, int amount)
@@ -20,7 +18,7 @@ namespace Calculator
             {
                 int result = start + amount;
 
-                _logger.Log(LogLevel.Info, $"Add calculation result: {result}");
+                _diagnostics.Log($"Add calculation result: {result}");
 
                 return result;
             }
@@ -36,7 +34,7 @@ namespace Calculator
             { 
                 int result = start - amount;
 
-                _logger.Log(LogLevel.Info, $"Subtract calculation result: {result}");
+                _diagnostics.Log($"Subtract calculation result: {result}");
 
                 return result;
             }
@@ -52,7 +50,7 @@ namespace Calculator
             { 
                 int result = start * amount;
 
-                _logger.Log(LogLevel.Info, $"Multiply calculation result: {result}");
+                _diagnostics.Log($"Multiply calculation result: {result}");
 
                 return result;
             }
@@ -69,7 +67,7 @@ namespace Calculator
             { 
                 int result = start / amount;
 
-                _logger.Log(LogLevel.Info, $"Divide calculation result: {result}");
+                _diagnostics.Log($"Divide calculation result: {result}");
 
                 return result;
             }

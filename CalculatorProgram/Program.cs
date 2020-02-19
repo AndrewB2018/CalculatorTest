@@ -1,5 +1,5 @@
 ﻿using Calculator;
-using NLog;
+using Common;
 using System;
 using Unity;
 using Unity.Resolution;
@@ -16,17 +16,17 @@ namespace CalculatorProgram
 
                 // Register
                 // Diagnostics interface that reports logs
-                container.RegisterFactory<ILogger>(l => LogManager.GetCurrentClassLogger());
+                container.RegisterType<IDiagnostics, DiagnosticsConsole>();
 
                 // Dummy diagnostics interface that doesn't report anything
-                //container.RegisterFactory<ILogger>(l => LogManager.CreateNullLogger());
+                //container.RegisterType<IDiagnostics, DiagnosticsDummy>();
 
                 container.RegisterType<ISimpleCalculator, SimpleCalculator>();
 
                 // Resolve
-                ILogger logger = container.Resolve<ILogger>();
+                IDiagnostics diagnostics = container.Resolve<IDiagnostics>();
 
-                ISimpleCalculator calculator = container.Resolve<ISimpleCalculator>(new ResolverOverride[] { new ParameterOverride("logger", logger) });
+                ISimpleCalculator calculator = container.Resolve<ISimpleCalculator>(new ResolverOverride[] { new ParameterOverride("diagnostics", diagnostics) });
 
                 // Add method
                 calculator.Add(0, 10);

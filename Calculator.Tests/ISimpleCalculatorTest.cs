@@ -1,5 +1,5 @@
+using Common;
 using Moq;
-using NLog;
 using NUnit.Framework;
 
 namespace Calculator.Tests
@@ -7,13 +7,13 @@ namespace Calculator.Tests
     public class ISimpleCalculatorTest
     {
         ISimpleCalculator calculator;
-        Mock<ILogger> mockLogger;
+        Mock<IDiagnostics> mockDiagnostics;
 
         [SetUp]
         public void Setup()
         {
-            mockLogger = new Mock<ILogger>();
-            calculator = new SimpleCalculator(mockLogger.Object);
+            mockDiagnostics = new Mock<IDiagnostics>();
+            calculator = new SimpleCalculator(mockDiagnostics.Object);
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace Calculator.Tests
             Assert.AreEqual(expected, actual, $"{start} add {amount} should be {expected}");
 
             //Verify logger is called
-            mockLogger.Verify(m => m.Log(LogLevel.Info, $"Add calculation result: {expected}"), Times.Exactly(1));
+            mockDiagnostics.Verify(m => m.Log($"Add calculation result: {expected}"), Times.Exactly(1));
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace Calculator.Tests
             Assert.AreEqual(expected, actual, $"{start} subtract {amount} should be {expected}");
 
             //Verify logger is called
-            mockLogger.Verify(m => m.Log(LogLevel.Info, $"Subtract calculation result: {expected}"), Times.Exactly(1));
+            mockDiagnostics.Verify(m => m.Log($"Subtract calculation result: {expected}"), Times.Exactly(1));
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace Calculator.Tests
             Assert.AreEqual(expected, actual, $"{start} multiplied by {amount} should be {expected}");
 
             //Verify logger is called
-            mockLogger.Verify(m => m.Log(LogLevel.Info, $"Multiply calculation result: {expected}"), Times.Exactly(1));
+            mockDiagnostics.Verify(m => m.Log($"Multiply calculation result: {expected}"), Times.Exactly(1));
         }
 
         [Test]
@@ -89,7 +89,7 @@ namespace Calculator.Tests
             Assert.AreEqual(expected, actual, $"{start} divided by {amount} should be {expected}");
 
             //Verify logger is called
-            mockLogger.Verify(m => m.Log(LogLevel.Info, $"Divide calculation result: {expected}"), Times.Exactly(1));
+            mockDiagnostics.Verify(m => m.Log($"Divide calculation result: {expected}"), Times.Exactly(1));
         }
     }
 }
