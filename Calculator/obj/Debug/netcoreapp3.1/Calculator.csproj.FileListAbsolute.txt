@@ -1,0 +1,9 @@
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\bin\Debug\netcoreapp3.1\Calculator.deps.json
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\bin\Debug\netcoreapp3.1\Calculator.dll
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\bin\Debug\netcoreapp3.1\Calculator.pdb
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\obj\Debug\netcoreapp3.1\Calculator.csprojAssemblyReference.cache
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\obj\Debug\netcoreapp3.1\Calculator.AssemblyInfoInputs.cache
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\obj\Debug\netcoreapp3.1\Calculator.AssemblyInfo.cs
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\obj\Debug\netcoreapp3.1\Calculator.dll
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\obj\Debug\netcoreapp3.1\Calculator.pdb
+C:\Users\Andy\Source\Repos\CalculatorTest\Calculator\bin\Debug\netcoreapp3.1\NLog.config

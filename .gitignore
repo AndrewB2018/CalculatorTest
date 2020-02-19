@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs/CalculatorTest/v16
+/Calculator/bin/Debug/netcoreapp3.1
+/Calculator.Tests/bin/Debug/netcoreapp3.1
+/Calculator.Tests/obj/Debug/netcoreapp3.1
+/Calculator.Tests/obj
+/CalculatorProgram/bin/Debug/netcoreapp3.1
+/CalculatorProgram/obj
+/.vs/CalculatorTest/DesignTimeBuild
