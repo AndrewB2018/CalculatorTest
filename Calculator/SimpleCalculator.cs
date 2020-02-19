@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,11 +7,22 @@ namespace Calculator
 {
     public class SimpleCalculator : ISimpleCalculator
     {
+        private readonly ILogger _logger;
+
+        public SimpleCalculator (ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public int Add(int start, int amount)
         {
             try
             {
-                return start + amount;
+                int result = start + amount;
+
+                _logger.Log(LogLevel.Info, $"Add calculation result: {result}");
+
+                return result;
             }
             catch(Exception e)
             {
@@ -22,7 +34,11 @@ namespace Calculator
         {
             try
             { 
-                return start - amount;
+                int result = start - amount;
+
+                _logger.Log(LogLevel.Info, $"Subtract calculation result: {result}");
+
+                return result;
             }
             catch (Exception e)
             {
@@ -34,7 +50,11 @@ namespace Calculator
         {
             try
             { 
-                return start * amount;
+                int result = start * amount;
+
+                _logger.Log(LogLevel.Info, $"Multiply calculation result: {result}");
+
+                return result;
             }
             catch (Exception e)
             {
@@ -47,7 +67,11 @@ namespace Calculator
         {
             try
             { 
-                return start / amount;
+                int result = start / amount;
+
+                _logger.Log(LogLevel.Info, $"Divide calculation result: {result}");
+
+                return result;
             }
             catch (Exception e)
             {
