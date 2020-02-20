@@ -1,6 +1,7 @@
 ﻿using Calculator;
 using Diagnostics;
 using System;
+using System.Net.Http;
 using Unity;
 using Unity.Resolution;
 
@@ -39,6 +40,29 @@ namespace CalculatorProgram
 
                 // Multiply method
                 calculator.Multiply(5, 5);
+
+                // Using web service
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://localhost:44333/calculator/");
+
+                    //HTTP GET
+                    var responseTask = client.GetAsync("add/10/15");
+                    responseTask.Wait();
+
+                    var result = responseTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+
+                        var readTask = result.Content.ReadAsStringAsync();
+                        readTask.Wait();
+
+                        string resultValue = readTask.Result;
+                        
+                        Console.WriteLine("Web Service Add result: " + resultValue);
+                        
+                    }
+                }
 
             }
             catch (Exception e)

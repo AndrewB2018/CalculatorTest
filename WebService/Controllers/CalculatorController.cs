@@ -1,5 +1,7 @@
 ﻿using Calculator;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Net.Http;
 
 namespace WebService.Controllers
 {
@@ -20,7 +22,9 @@ namespace WebService.Controllers
         [Route("add/{start:int}/{amount:int}")]
         public int Add(int start = 0, int amount = 0)
         {
-            return _calculator.Add(start, amount);
+            int result = _calculator.Add(start, amount);
+
+            return result;
         }
 
         [HttpGet]
