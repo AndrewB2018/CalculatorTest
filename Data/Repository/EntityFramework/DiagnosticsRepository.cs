@@ -2,7 +2,7 @@
 using Entities.Models;
 using System;
 
-namespace Data
+namespace Data.Repository.EntityFramework
 {
     public class DiagnosticsRepository : IDiagnosticsRepository
     {
