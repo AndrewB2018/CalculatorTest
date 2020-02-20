@@ -17,7 +17,7 @@ namespace Calculator.Tests
         }
 
         [Test]
-        public void CalculatorAddTest()
+        public void Add_NormalNumbers_Pass()
         {
             //Arrange
             int start = 2;
@@ -36,7 +36,7 @@ namespace Calculator.Tests
         }
 
         [Test]
-        public void CalculatorSubtractTest()
+        public void Subtract_NormalNumbers_Pass()
         {
             //Arrange
             int start = 10;
@@ -55,7 +55,7 @@ namespace Calculator.Tests
         }
 
         [Test]
-        public void CalculatorMultiplyTest()
+        public void Multiply_NormalNumbers_Pass()
         {
             //Arrange
             int start = 10;
@@ -74,7 +74,7 @@ namespace Calculator.Tests
         }
 
         [Test]
-        public void CalculatorDivideTest()
+        public void Divide_NormalNumbers_Pass()
         {
             //Arrange
             int start = 9;
