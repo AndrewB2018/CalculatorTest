@@ -1,6 +1,10 @@
 ﻿using Calculator;
+using Data;
+using Data.Context;
 using Diagnostics;
+using Entities.Models;
 using System;
+using System.Linq;
 using System.Net.Http;
 using Unity;
 using Unity.Resolution;
@@ -17,10 +21,14 @@ namespace CalculatorProgram
 
                 // Register
                 // Diagnostics interface that reports logs
-                container.RegisterType<IDiagnostics, DiagnosticsConsole>();
+                //container.RegisterType<IDiagnostics, DiagnosticsConsole>();
 
                 // Dummy diagnostics interface that doesn't report anything
                 //container.RegisterType<IDiagnostics, DiagnosticsDummy>();
+
+                // Diagnostics interface that writes logs to database
+                container.RegisterType<IDiagnosticsRepository, DiagnosticsRepository>();
+                container.RegisterType<IDiagnostics, DiagnosticsDatabase>();
 
                 container.RegisterType<ISimpleCalculator, SimpleCalculator>();
 
@@ -42,27 +50,27 @@ namespace CalculatorProgram
                 calculator.Multiply(5, 5);
 
                 // Using web service
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri("https://localhost:44333/calculator/");
+                //using (var client = new HttpClient())
+                //{
+                //    client.BaseAddress = new Uri("https://localhost:44333/calculator/");
 
-                    //HTTP GET
-                    var responseTask = client.GetAsync("add/10/15");
-                    responseTask.Wait();
+                //    //HTTP GET
+                //    var responseTask = client.GetAsync("add/10/15");
+                //    responseTask.Wait();
 
-                    var result = responseTask.Result;
-                    if (result.IsSuccessStatusCode)
-                    {
+                //    var result = responseTask.Result;
+                //    if (result.IsSuccessStatusCode)
+                //    {
 
-                        var readTask = result.Content.ReadAsStringAsync();
-                        readTask.Wait();
+                //        var readTask = result.Content.ReadAsStringAsync();
+                //        readTask.Wait();
 
-                        string resultValue = readTask.Result;
+                //        string resultValue = readTask.Result;
                         
-                        Console.WriteLine("Web Service Add result: " + resultValue);
+                //        Console.WriteLine("Web Service Add result: " + resultValue);
                         
-                    }
-                }
+                //    }
+                //}
 
             }
             catch (Exception e)

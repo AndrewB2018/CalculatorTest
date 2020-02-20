@@ -1,7 +1,5 @@
 ﻿using Calculator;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using System.Net.Http;
 
 namespace WebService.Controllers
 {
@@ -9,8 +7,6 @@ namespace WebService.Controllers
     [Route("[controller]")]
     public class CalculatorController : ControllerBase
     {
-
-
         private readonly ISimpleCalculator _calculator;
 
         public CalculatorController(ISimpleCalculator calculator)
