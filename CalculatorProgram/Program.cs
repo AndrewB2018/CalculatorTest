@@ -1,6 +1,7 @@
 ﻿using Calculator;
 using Data;
 using Data.Context;
+using Data.Repository.EntityFramework;
 using Diagnostics;
 using Entities.Models;
 using System;
