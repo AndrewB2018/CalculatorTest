@@ -1,5 +1,4 @@
-﻿using Data;
-using Data.Repository.EntityFramework;
+﻿using Data.Repository.Interface;
 using System;
 
 

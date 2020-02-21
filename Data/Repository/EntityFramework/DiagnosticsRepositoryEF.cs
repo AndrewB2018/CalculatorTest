@@ -1,10 +1,11 @@
 ﻿using Data.Context;
+using Data.Repository.Interface;
 using Entities.Models;
 using System;
 
 namespace Data.Repository.EntityFramework
 {
-    public class DiagnosticsRepository : IDiagnosticsRepository
+    public class DiagnosticsRepositoryEF : IDiagnosticsRepository
     {
         private DiagnosticsContext db = new DiagnosticsContext();
 

@@ -1,7 +1,9 @@
 ﻿using Calculator;
 using Data;
 using Data.Context;
+using Data.Repository.ADO;
 using Data.Repository.EntityFramework;
+using Data.Repository.Interface;
 using Diagnostics;
 using Entities.Models;
 using System;
@@ -27,8 +29,9 @@ namespace CalculatorProgram
                 // Dummy diagnostics interface that doesn't report anything
                 //container.RegisterType<IDiagnostics, DiagnosticsDummy>();
 
-                // Diagnostics interface that writes logs to database
-                //container.RegisterType<IDiagnosticsRepository, DiagnosticsRepository>();
+                // Diagnostics interface that writes logs to database - uncomment to use either EF or ADO repository
+                //container.RegisterType<IDiagnosticsRepository, DiagnosticsRepositoryEF>();
+                //container.RegisterType<IDiagnosticsRepository, DiagnosticsRepositoryADO>();
                 //container.RegisterType<IDiagnostics, DiagnosticsDatabase>();
 
                 container.RegisterType<ISimpleCalculator, SimpleCalculator>();

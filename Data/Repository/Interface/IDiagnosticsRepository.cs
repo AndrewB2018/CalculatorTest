@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Repository.EntityFramework
+namespace Data.Repository.Interface
 {
     public interface IDiagnosticsRepository
     {
